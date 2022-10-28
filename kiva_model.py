@@ -13,7 +13,7 @@ import pickle
 import numpy as np
 st.header("Kiva Loans Prediction App")
 st.text_input("Enter your Name: ", key="name")
-kiva_loans = pd.read_csv("kiva_loans2")
+kiva_loans = pd.read_csv("https://raw.githubusercontent.com/kristophernerl/PredictKivaLoans/main/kiva_loans2.csv")
 
 #load label encoders
 label_encoder_sector = LabelEncoder()
