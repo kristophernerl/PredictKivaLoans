@@ -23,7 +23,7 @@ label_encoder_gender.classes_ = np.load('label_encoder_gender.npy',allow_pickle=
 
 # load model
 cat_model = CatBoostRegressor()
-cat_model.load_model("cat_model.json")
+cat_model.load_model("model.json")
 
 ##start
 if st.checkbox('Show Training Dataframe'):
