@@ -22,8 +22,8 @@ label_encoder_gender = LabelEncoder()
 label_encoder_gender.classes_ = np.load('label_encoder_gender.npy',allow_pickle=True)
 
 # load model
-cat_model = CatBoostRegressor()
-cat_model.load_model("model.json")
+model = CatBoostRegressor()
+model.load_model("model.json")
 
 ##start
 if st.checkbox('Show Training Dataframe'):
@@ -49,7 +49,7 @@ if st.button('Make Prediction'):
     input_gender = label_encoder_gender.transform(np.expand_dims(inpu_gender, -1))
     inputs = np.expand_dims(
         [int(input_sector), int(input_gender), input_payment, input_income], 0)
-    prediction = cat_model.predict(inputs)
+    prediction = model.predict(inputs)
     print("final pred", np.squeeze(prediction, -1))
     st.write(f"Your recomended loan amount to request is: ${np.squeeze(prediction, -1):.2f}")
 
